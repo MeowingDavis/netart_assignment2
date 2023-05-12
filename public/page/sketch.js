@@ -1,11 +1,13 @@
 //Set angle to zero
 let angle = 0;
 
+let bgToggle = true;
+
 //Create an audio context
 const audio_context = new AudioContext();
 
 //Set bgtoggle to true
-let bgToggle = true;
+
 
 // Define function to load audio file asynchronously (this is something that was suggested to me by vscode i originally had it set up as a normal function)
 const loadAudio = async (audioFiles) => {
