@@ -48,31 +48,26 @@ function draw() {
   if (bgToggle) {
     background(220);
   }
-  
-  
+
   // This code calculates the current iteration for an animation that moves back and forth within the screen width.
-  // It uses the modulo operator to make sure "iter" never exceeds the screen width multiplied by 2.
-  // If "iter" is larger than the screen width, it sets "iter" to the difference between the screen width multiplied by 2 and "iter".
-  
-  let iter = frameCount % (2 * innerWidth);
-  iter = iter > innerWidth ? 2 * innerWidth - iter : iter;
+  const modNumber = (2 * innerWidth) - 1; // Set the modulo limit to the screen width multiplied by 2 minus 1
+  let iter = ((frameCount % modNumber) + 1); // Add 1 to the iteration to avoid it being 0
+  iter = iter > innerWidth ? (modNumber - iter) : iter;
 
-
-  
   // Set the ellipse to have no outline
   noStroke();
 
-  //Calculate the diamater of the ellipse
+  //Calculate the diameter of the ellipse
   let diameter = 100 + 50 * noise(angle + 20);
 
   // Calculate the ellipse coordinates
-  let x = width/2 + 50 * noise(angle);
-  let y = height/2 + 50 * noise(angle+10);
+  let x = width / 2 + 50 * noise(angle);
+  let y = height / 2 + 50 * noise(angle + 10);
 
   // Set ellipse mode to the center
   ellipseMode(CENTER);
 
-  // Apply color using different wave frequencies(I was initally using random but i wasnt enjoying the flashing changes so ive decided to use what i imagine is similar to an lfo)
+  // Apply color using different wave frequencies
   let r = 255 * 0.5 * (1 + sin(frameCount * 0.01));
   let g = 255 * 0.5 * (1 + sin(frameCount * 0.02));
   let b = 255 * 0.5 * (1 + sin(frameCount * 0.03));
@@ -81,10 +76,10 @@ function draw() {
   // Recursively draw the ellipse
   recursive_ellipse(x, y, iter, diameter);
 
-  // Update the angle
-  angle += 0.05;
-  
+  // Update angle for noise used in ellipse calculations
+  angle += 0.01;
 }
+
  
 
 //Recursive function to draw an ellipse
