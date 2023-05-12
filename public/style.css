@@ -1,0 +1,16 @@
+.flashWarning {
+    text-align: center;
+    font-size: 15px;
+    font-family: monospace;
+  }
+
+a {
+    background-color: turquoise;
+    padding: 5px;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+a:hover {
+    background-color: yellow;
+  }

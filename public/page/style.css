@@ -1,0 +1,20 @@
+html, body {
+  margin: 0;
+  padding: 0;
+}
+
+canvas {
+  display: block;
+}
+
+header {
+  display: flex;
+  justify-content: center;
+  font-family: monospace;
+  text-align: center;
+  height: 80px;
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+}
