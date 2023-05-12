@@ -48,7 +48,7 @@ function draw() {
   if (bgToggle) {
     background(220);
   }
-
+  //iter works when viewing locally but im not sure why when uploaded to deno it doesnt display
   // This code calculates the current iteration for an animation that moves back and forth within the screen width.
   const modNumber = (2 * innerWidth) - 1; // Set the modulo limit to the screen width multiplied by 2 minus 1
   let iter = ((frameCount % modNumber) + 1); // Add 1 to the iteration to avoid it being 0
