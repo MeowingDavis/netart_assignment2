@@ -31,12 +31,13 @@ function setup() {
     source.buffer = buffer;
     source.connect(gainNode); // connect the source to the gain node
     gainNode.connect(audio_context.destination); // connect the gain node to the destination
-    gainNode.gain.value = 0.09; //setting gain to 0.2 maybe it could be louder but 0.1 seemed good while testing
+    gainNode.gain.value = 0.09; //setting gain to 0.9 
     source.start(0);
     source.loop = true; //loop audio so you can stare for longer \/O_O\/
   });
 
   // Add an event listener for the "beforeunload" event (I did this in an attempt to stop the audio clipping when exiting the window or refreshing, I dont think it works)
+  // audio_context.close() should be executed after the audio is done playing, not on window refresh/exit. but \/O_o\/
   window.addEventListener("beforeunload", () => {
     audio_context.close();
   });
@@ -47,7 +48,17 @@ function draw() {
   if (bgToggle) {
     background(220);
   }
+  
+  
+  // This code calculates the current iteration for an animation that moves back and forth within the screen width.
+  // It uses the modulo operator to make sure "iter" never exceeds the screen width multiplied by 2.
+  // If "iter" is larger than the screen width, it sets "iter" to the difference between the screen width multiplied by 2 and "iter".
+  
+  let iter = frameCount % (2 * innerWidth);
+  iter = iter > innerWidth ? 2 * innerWidth - iter : iter;
 
+
+  
   // Set the ellipse to have no outline
   noStroke();
 
@@ -68,11 +79,13 @@ function draw() {
   fill(r, g, b);
 
   // Recursively draw the ellipse
-  recursive_ellipse(x, y, diameter, diameter);
+  recursive_ellipse(x, y, iter, diameter);
 
   // Update the angle
   angle += 0.05;
+  
 }
+ 
 
 //Recursive function to draw an ellipse
 function recursive_ellipse(x, y, w, h) {
