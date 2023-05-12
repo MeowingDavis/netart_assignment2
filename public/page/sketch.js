@@ -31,7 +31,7 @@ function setup() {
     source.buffer = buffer;
     source.connect(gainNode); // connect the source to the gain node
     gainNode.connect(audio_context.destination); // connect the gain node to the destination
-    gainNode.gain.value = 0.1; //setting gain to 0.1 maybe it could be louder but 0.1 seemed good while testing
+    gainNode.gain.value = 0.2; //setting gain to 0.2 maybe it could be louder but 0.1 seemed good while testing
     source.start(0);
     source.loop = true; //loop audio so you can stare for longer \/O_O\/
   });
