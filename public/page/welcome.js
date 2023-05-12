@@ -1,6 +1,6 @@
 const welcomeText = document.getElementById("welcome");
 
-// Fade out the welcome text after 5 seconds
+// Fade out the welcome 
 setTimeout(function(){
   gsap.to(welcomeText, { duration: 1, opacity: 0, onComplete: function(){
     welcomeText.textContent = "double click to hold background";
@@ -8,7 +8,7 @@ setTimeout(function(){
   }});
 }, 2000);
 
-// Fade out the welcome text again after 5 more seconds
+// Fade out the welcome text again.
 setTimeout(function(){
   gsap.to(welcomeText, { duration: 1, opacity: 0 });
 }, 6000);
