@@ -72,10 +72,8 @@ function draw() {
   let g = 255 * 0.5 * (1 + sin(frameCount * 0.02));
   let b = 255 * 0.5 * (1 + sin(frameCount * 0.03));
   fill(r, g, b);
-
   // Recursively draw the ellipse
   recursive_ellipse(x, y, iter, diameter);
-
   // Update angle for noise used in ellipse calculations
   angle += 0.01;
 }
