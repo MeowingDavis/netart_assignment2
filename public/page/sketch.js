@@ -1,8 +1,6 @@
 //Set angle to zero
 let angle = 0;
 
-let bgToggle = true;
-
 //Create an audio context
 const audio_context = new AudioContext();
 
@@ -17,6 +15,9 @@ const loadAudio = async (audioFiles) => {
 
 // Call the function with possible audio files & get the promise
 const audioBufferPromise = loadAudio(["drone.wav", "drone_1.wav"]);
+
+// Declare the bgToggle variable globally
+let bgToggle = true;
 
 // On setup, initialize the canvas
 function setup() {
@@ -73,8 +74,8 @@ function draw() {
     recursive_ellipse(x, y, iter, diameter);
     // Update angle for noise used in ellipse calculations
     angle += 0.01;
+   
 }
-
 
  
 
